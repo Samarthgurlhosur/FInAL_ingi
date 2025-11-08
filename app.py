@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template
-import sqlite3, qrcode, io, base64, json, uuid, datetime
+import sqlite3, qrcode, io, base64, json, uuid, datetime, os
 
 app = Flask(__name__)
 
@@ -150,5 +150,7 @@ def admin():
     return render_template('admin.html', teams_data=teams_data)
 
 
+# ----------- RUN APP -----------
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 10000))  # Dynamic port for Render
+    app.run(host='0.0.0.0', port=port, debug=True)
