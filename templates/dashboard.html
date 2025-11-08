@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coordinator Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <h2>Coordinator Dashboard</h2>
+  <div id="reader"></div>
+
+  <div id="team-info" class="hidden">
+    <h3 id="team-name"></h3>
+    <p id="team-members"></p>
+
+    <table id="members-table">
+      <thead>
+        <tr>
+          <th>Member</th>
+          <th>Check-In</th>
+          <th>Snacks</th>
+          <th>Dinner</th>
+          <th>Check-Out</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <button onclick="updateMembers()">Update Status</button>
+    <button id="scan-next" class="hidden" onclick="startNextScan()">Scan Next QR</button>
+  </div>
+
+  <script src="https://unpkg.com/html5-qrcode"></script>
+  <script src="/static/script.js"></script>
+</body>
+</html>

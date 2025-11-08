@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register Team</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <h2>Register Your Team</h2>
+
+  <div class="form-box">
+    <input type="text" id="team_name" placeholder="Team Name" required />
+    <input type="text" id="members" placeholder="Members (comma separated)" required />
+    <button onclick="registerTeam()">Generate QR</button>
+  </div>
+
+  <div id="qr-container" class="hidden">
+    <h3>Your Team QR Code</h3>
+    <img id="qr" src="" alt="QR Code" style="margin-top:10px; width:250px; height:250px;" />
+    <br />
+    <a id="download-link" href="#" download="team_qr.png" class="btn">Download QR</a>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>

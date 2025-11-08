@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin View</title>
+  <meta http-equiv="refresh" content="10"> <!-- 🔄 Auto-refresh every 10 seconds -->
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h2> Admin Panel — Latest Updates First</h2>
+
+  {% for data in teams_data %}
+  <div class="admin-card">
+    <h3>{{ data.team.team_name }}</h3>
+    <p><strong>Last Updated:</strong> {{ data.team.last_updated }}</p>
+
+    <table>
+      <tr>
+        <th>Member</th>
+        <th>Check-In</th>
+        <th>Snacks</th>
+        <th>Dinner</th>
+        <th>Check-Out</th>
+      </tr>
+
+      {% for m in data.members %}
+      <tr>
+        <td>{{ m.member_name }}</td>
+        <td style="color: {{ 'lime' if m.check_in else 'red' }}">{{ "✅" if m.check_in else "❌" }}</td>
+        <td style="color: {{ 'lime' if m.snacks else 'red' }}">{{ "✅" if m.snacks else "❌" }}</td>
+        <td style="color: {{ 'lime' if m.dinner else 'red' }}">{{ "✅" if m.dinner else "❌" }}</td>
+        <td style="color: {{ 'lime' if m.check_out else 'red' }}">{{ "✅" if m.check_out else "❌" }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  {% endfor %}
+</body>
+</html>
